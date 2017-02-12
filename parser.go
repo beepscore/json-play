@@ -16,7 +16,8 @@ func main() {
 	unmarshalApp()
 	// unmarshalAppDictData()
 
-	unmarshalJson()
+	unmarshalJsonMapStringString()
+	unmarshalJsonMapStringInterface()
 }
 
 // structs
@@ -75,7 +76,7 @@ func unmarshalAppDictData() {
 	fmt.Println("mymap.app ", mymap.app)
 }
 
-func unmarshalJson() {
+func unmarshalJsonMapStringString() {
 
 	// backticks for raw string, preserves whitespace
 	jsonData := []byte(`
@@ -93,4 +94,25 @@ func unmarshalJson() {
 	}
 	fmt.Println("obj ", obj)
 	//fmt.Println("obj.name ", obj.name)
+}
+
+func unmarshalJsonMapStringInterface() {
+
+	// backticks for raw string, preserves whitespace
+	jsonData := []byte(`
+	{ "name": "Homer Simpson",
+	"age": 42
+}
+`)
+
+	// interface{} is an empty interface,
+	// can take any type e.g. string or int
+	var obj map[string]interface{}
+
+	err := json.Unmarshal(jsonData, &obj)
+	if err != nil {
+		fmt.Println("error %d\n", err)
+		panic(err)
+	}
+	fmt.Println("obj ", obj)
 }
