@@ -8,8 +8,6 @@ import (
 func main() {
 
 	unmarshalApp()
-	// unmarshalAppDictData()
-
 	unmarshalJsonMapStringString()
 	unmarshalJsonMapStringInterface()
 	unmarshalJsonArray()
@@ -49,28 +47,6 @@ func unmarshalApp() {
 	fmt.Println("app ", app)
 	fmt.Println("app.Id ", app.Id)
 	fmt.Println("app.Title ", app.Title)
-}
-
-// TODO: FIXME
-func unmarshalAppDictData() {
-
-	appDictData := []byte(`
-	{ "app": {
-		"id": "k34rAT4",
-		"title": "My Awesome App"
-	}
-}
-`)
-
-	// variable name type
-	var mymap Mymap
-
-	err := json.Unmarshal(appDictData, &mymap)
-	if err != nil {
-		fmt.Println("error %d\n", err)
-	}
-	fmt.Println("mymap ", mymap)
-	fmt.Println("mymap.app ", mymap.app)
 }
 
 func unmarshalJsonMapStringString() {
