@@ -177,6 +177,7 @@ func unmarshalJsonFoodsToys() {
 	err := json.Unmarshal(jsonBytes, &items)
 	if err != nil {
 		fmt.Println("error:", err)
+		panic(err)
 	}
 
 	fmt.Println("\n")
