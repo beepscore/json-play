@@ -164,6 +164,7 @@ func unmarshalJsonDict() {
 	fmt.Printf("%+v", colorGroup)
 }
 
+// http://stackoverflow.com/questions/40008652/golang-nested-struct-and-map#40012284
 func unmarshalJsonFoodsToys() {
 
 	// backticks for raw string, preserves whitespace
@@ -175,10 +176,10 @@ func unmarshalJsonFoodsToys() {
 	}`)
 
 	type Food struct {
-		Name string
+		Name string `json:"name"`
 		// food Calorie = kcal
 		// https://en.wikipedia.org/wiki/Food_energy
-		Calories int
+		Calories uint `json:"calories"`
 	}
 
 	type Toy struct {
@@ -187,22 +188,17 @@ func unmarshalJsonFoodsToys() {
 		FunValue int
 	}
 
-	var itemsDict map[string]interface{}
+	type Items struct {
+		Foods []Food `json:"foods"`
+	}
 
-	err := json.Unmarshal(jsonBytes, &itemsDict)
+	items := Items{}
+	err := json.Unmarshal(jsonBytes, &items)
 	if err != nil {
 		fmt.Println("error:", err)
 	}
+
 	fmt.Println("\n")
+	fmt.Println(items)
 
-	// TODO: get foods and toys
-	for k, v := range itemsDict {
-		// fmt.Println("k:", k, "v:", v)
-
-		if k == "foods" {
-			// TODO: for each food in foods, instantiate a Food
-			//fmt.Println(itemsDict["foods"])
-			fmt.Println("k:", k, "v:", v)
-		}
-	}
 }
