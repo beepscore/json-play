@@ -187,14 +187,14 @@ func unmarshalJsonFoodsToys() {
 		FunValue int
 	}
 
-	var obj map[string]interface{}
+	var itemsDict map[string]interface{}
 
-	err := json.Unmarshal(jsonBytes, &obj)
+	err := json.Unmarshal(jsonBytes, &itemsDict)
 	if err != nil {
 		fmt.Println("error:", err)
 	}
 	fmt.Println("\n")
-	fmt.Printf("%+v", obj)
+	fmt.Printf("%+v", itemsDict)
 
 	// TODO: get foods and toys
 }
