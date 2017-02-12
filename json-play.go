@@ -172,6 +172,10 @@ func unmarshalJsonFoodsToys() {
 		"foods": [
 		{"name": "hamburger", "calories": 800},
 		{"name": "cookie", "calories": 60}
+		],
+		"toys": [
+		{"name": "yoyo", "fun_value": 3},
+		{"name": "bike", "fun_value": 8}
 		]
 	}`)
 
@@ -183,13 +187,14 @@ func unmarshalJsonFoodsToys() {
 	}
 
 	type Toy struct {
-		Name string
+		Name string `json:"name"`
 		// FunValue valid range 0 - 10 inclusive
-		FunValue int
+		FunValue int `json:"fun_value"`
 	}
 
 	type Items struct {
 		Foods []Food `json:"foods"`
+		Toys  []Toy  `json:"toys"`
 	}
 
 	items := Items{}
