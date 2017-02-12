@@ -18,6 +18,7 @@ func main() {
 
 	unmarshalJsonMapStringString()
 	unmarshalJsonMapStringInterface()
+	unmarshalJsonArray()
 }
 
 // structs
@@ -115,4 +116,27 @@ func unmarshalJsonMapStringInterface() {
 		panic(err)
 	}
 	fmt.Println("obj ", obj)
+}
+
+// example from godoc
+func unmarshalJsonArray() {
+
+	// backticks for raw string, preserves whitespace
+	jsonBlob := []byte(`[
+	{ "Name": "Platypus", "Order": "Monotremata" },
+	{ "Name": "Quoll", "Order": "Dasyurus" }
+	]`)
+
+	type Animal struct {
+		Name  string
+		Order string
+	}
+
+	var animals []Animal
+
+	err := json.Unmarshal(jsonBlob, &animals)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	fmt.Printf("%+v", animals)
 }
