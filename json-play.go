@@ -194,7 +194,15 @@ func unmarshalJsonFoodsToys() {
 		fmt.Println("error:", err)
 	}
 	fmt.Println("\n")
-	fmt.Printf("%+v", itemsDict)
 
 	// TODO: get foods and toys
+	for k, v := range itemsDict {
+		// fmt.Println("k:", k, "v:", v)
+
+		if k == "foods" {
+			// TODO: for each food in foods, instantiate a Food
+			//fmt.Println(itemsDict["foods"])
+			fmt.Println("k:", k, "v:", v)
+		}
+	}
 }
