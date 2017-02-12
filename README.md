@@ -23,6 +23,6 @@ Read and write JSON stream.
 ## build app
 go build json-play.go
 
-## start server
+## run
 ./json-play
 
