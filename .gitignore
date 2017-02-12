@@ -30,3 +30,6 @@ _testmain.go
 
 # External packages folder
 vendor/
+
+# file created via $go build json-play.go
+json-play
