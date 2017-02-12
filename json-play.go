@@ -14,6 +14,7 @@ func main() {
 	unmarshalJsonMapStringInterface()
 	unmarshalJsonArray()
 	unmarshalJsonDict()
+	unmarshalJsonFoodsToys()
 }
 
 // structs
@@ -161,4 +162,39 @@ func unmarshalJsonDict() {
 	}
 	fmt.Println("\n")
 	fmt.Printf("%+v", colorGroup)
+}
+
+func unmarshalJsonFoodsToys() {
+
+	// backticks for raw string, preserves whitespace
+	jsonBytes := []byte(`{
+		"foods": [
+		{"name": "hamburger", "calories": 800},
+		{"name": "cookie", "calories": 60}
+		]
+	}`)
+
+	type Food struct {
+		Name string
+		// food Calorie = kcal
+		// https://en.wikipedia.org/wiki/Food_energy
+		Calories int
+	}
+
+	type Toy struct {
+		Name string
+		// FunValue valid range 0 - 10 inclusive
+		FunValue int
+	}
+
+	var obj map[string]interface{}
+
+	err := json.Unmarshal(jsonBytes, &obj)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	fmt.Println("\n")
+	fmt.Printf("%+v", obj)
+
+	// TODO: get foods and toys
 }
