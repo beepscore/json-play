@@ -19,6 +19,7 @@ func main() {
 	unmarshalJsonMapStringString()
 	unmarshalJsonMapStringInterface()
 	unmarshalJsonArray()
+	unmarshalJsonDict()
 }
 
 // structs
@@ -93,6 +94,7 @@ func unmarshalJsonMapStringString() {
 		fmt.Println("error %d\n", err)
 		panic(err)
 	}
+	fmt.Println("\n")
 	fmt.Println("obj ", obj)
 	//fmt.Println("obj.name ", obj.name)
 }
@@ -138,5 +140,31 @@ func unmarshalJsonArray() {
 	if err != nil {
 		fmt.Println("error:", err)
 	}
+	fmt.Println("\n")
 	fmt.Printf("%+v", animals)
+}
+
+func unmarshalJsonDict() {
+
+	// backticks for raw string, preserves whitespace
+	jsonBytes := []byte(`{
+		"id": 1,
+		"name": "reds",
+		"colors": ["Crimson", "Red", "Ruby", "Maroon"]
+	}`)
+
+	type ColorGroup struct {
+		ID     int
+		Name   string
+		Colors []string
+	}
+
+	var colorGroup ColorGroup
+
+	err := json.Unmarshal(jsonBytes, &colorGroup)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	fmt.Println("\n")
+	fmt.Printf("%+v", colorGroup)
 }
