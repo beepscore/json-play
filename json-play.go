@@ -1,11 +1,5 @@
 package main
 
-// https://eager.io/blog/go-and-json/
-// https://blog.golang.org/json-and-go
-
-// Golang JSON
-// https://www.youtube.com/watch?v=5ArjDIbB5UA
-
 import (
 	"encoding/json"
 	"fmt"
