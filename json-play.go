@@ -27,11 +27,10 @@ type App struct {
 func unmarshalApp() {
 
 	// backticks for raw string, preserves whitespace
-	appData := []byte(`
-	{ "id": "k34rAT4",
-	"title": "My Awesome App"
-}
-`)
+	appData := []byte(`{
+		"id": "k34rAT4",
+		"title": "My Awesome App"
+	}`)
 
 	// variable name type
 	var app App
@@ -48,10 +47,9 @@ func unmarshalApp() {
 func unmarshalJsonMapStringString() {
 
 	// backticks for raw string, preserves whitespace
-	jsonData := []byte(`
-	{ "name": "Homer Simpson"
-}
-`)
+	jsonData := []byte(`{
+		"name": "Homer Simpson"
+	}`)
 
 	// variable name type
 	var obj map[string]string
@@ -69,11 +67,10 @@ func unmarshalJsonMapStringString() {
 func unmarshalJsonMapStringInterface() {
 
 	// backticks for raw string, preserves whitespace
-	jsonData := []byte(`
-	{ "name": "Homer Simpson",
-	"age": 42
-}
-`)
+	jsonData := []byte(`{
+		"name": "Homer Simpson",
+		"age": 42
+	}`)
 
 	// interface{} is an empty interface,
 	// can take any type e.g. string or int
