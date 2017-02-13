@@ -144,7 +144,8 @@ func unmarshalJsonFoodsToys() {
 		],
 		"toys": [
 		{"name": "yoyo", "fun_value": 3, "danger_rating": 2},
-		{"name": "bike", "fun_value": 8, "danger_rating": 7}
+		{"name": "bike", "fun_value": 8, "danger_rating": 7},
+		{"name": "trike", "fun_value": 6}
 		]
 	}`)
 
