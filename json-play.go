@@ -181,6 +181,8 @@ func unmarshalJsonFoodsToys() {
 	}
 
 	fmt.Println("\n")
-	fmt.Println(items)
+	fmt.Println("items:", items)
+	fmt.Println("items.Foods:", items.Foods)
+	fmt.Println("items.Toys", items.Toys)
 
 }
