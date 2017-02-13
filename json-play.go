@@ -22,10 +22,6 @@ type App struct {
 	Title string `json:"title"`
 }
 
-type Mymap struct {
-	app App `json:"app"`
-}
-
 // unmarshal methods
 
 func unmarshalApp() {
